@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Your Project</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4sybMF3UdYCTrQ9E_OUMNXdqe0PNyB-U&callback=initMap" async defer></script>
+    <style>
+        /* Set the size of the map */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            // The location
+            const location = { lat: -34.397, lng: 150.644 };
+            // The map, centered at the location
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: location,
+            });
+            // The marker, positioned at the location
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+    </script>
+</body>
+</html>
