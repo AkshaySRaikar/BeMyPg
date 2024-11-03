@@ -2,23 +2,34 @@ const express = require('express')
 const cors = require("cors")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
-
+const { connectomongodb}=require("./connect")
 const app = express()
 const port = 3000
 
+
+connectomongodb("mongodb://localhost:27017/BeMyPg")
+.then(()=>console.log("Mongodbconnected"));
+
 // importing the routes : 
 const AddNewPgRoute = require("./routes/AddPGdetails");
-const AddNewRoom = require()
+const staticRoute=require("./routes/staticRouter");
+const pgowner=require("./routes/Pgowner");
+const pguser=require("./routes/Pguser");
+// const AddNewRoom = require()
+
 
 // Midleware for packages
 app.use(cors())
 app.use(bodyParser.json())
-
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 // Midllewares or routes 
-app.use("/AddNewPgOwner",AddNewPgRoute)
-
+app.use("/AddNewPgOwner",AddNewPgRoute)     // for filling the details
+app.use("/",staticRoute);
+app.use("/owner",pgowner);      // means if url with /owner then call this
+app.use("/user",pguser);
 // MongoDB connection : BeMyPg (Name of the database)
-mongoose.connect("mongodb://localhost:27017/BeMyPg")
+// mongoose.connect("mongodb://localhost:27017/BeMyPg")
 
 // app.get('/', (req, res) => {
 //     res.send('Hello World!')
