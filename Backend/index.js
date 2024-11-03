@@ -10,7 +10,7 @@ const port = 3000
 const AddNewPgRoute = require("./routes/AddPGdetails");
 const AddNewRoom = require()
 
-// Miidleware for packages
+// Midleware for packages
 app.use(cors())
 app.use(bodyParser.json())
 
