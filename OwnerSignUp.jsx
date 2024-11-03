@@ -13,7 +13,7 @@ function Signup() {
     };
 
     return (
-        <div className="flex min-h-screen bg-gray-900">
+        <div className="flex min-h-screen bg-black">
             <div className="w-1/2 flex flex-col justify-center items-center bg-black p-8">
                 <h1 className="text-5xl font-bold mb-4 text-white">BeMyPG</h1>
                 <div className="flex mb-4">
