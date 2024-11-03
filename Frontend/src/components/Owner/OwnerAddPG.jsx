@@ -35,7 +35,7 @@ const OwnerAddPG = () => {
             <input className='bg-slate-300' type='text' placeholder="City" {...register("city",{required:{value : true, message : "Mandatory field"}})} />
             {errors.city && <span className='text-red-600'>{errors.city.message}</span>}
 
-            <input className='bg-slate-300' type='number' placeholder='Price'{...register("price",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
+            <input className='bg-slate-300' type='number' placeholder='Price Range'{...register("price",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
                 validate: (value) => !isNaN(value) || "Please enter a valid number"})} />
             {errors.price && <span className='text-red-600'>{errors.price.message}</span>}
             

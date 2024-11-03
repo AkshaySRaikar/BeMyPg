@@ -8,7 +8,24 @@ const AddNewPg =async (req,res) => {
             PhNumber : body.phNumber,
             Address : body.address,
             City : body.city,
-            Price : body.price,
+            PriceRange : body.price,
+            Rooms : [
+                {
+                    RoomType : "Single Occupancy",
+                    RoomPrice : 0,
+                    VacantRooms : 0,
+                },
+                {
+                    RoomType : "Double Occupancy",
+                    RoomPrice : 0,
+                    VacantRooms : 0,
+                },
+                {
+                    RoomType : "Triple Occupancy",
+                    RoomPrice : 0,
+                    VacantRooms : 0,
+                },
+            ]
         })
         
         res.send("Got the data");
