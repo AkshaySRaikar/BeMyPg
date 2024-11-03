@@ -15,7 +15,9 @@ connectomongodb("mongodb://localhost:27017/BeMyPg")
 const AddNewPgRoute = require("./routes/AddPGdetails");
 const staticRoute=require("./routes/staticRouter");
 const pgowner=require("./routes/Pgowner");
+const pguser=require("./routes/Pguser");
 // const AddNewRoom = require()
+
 
 // Miidleware for packages
 app.use(cors())
@@ -26,7 +28,7 @@ app.use(express.urlencoded({extended:false}));
 app.use("/AddNewPgOwner",AddNewPgRoute)     // for filling the details
 app.use("/",staticRoute);
 app.use("/owner",pgowner);      // means if url with /owner then call this
-
+app.use("/user",pguser);
 // MongoDB connection : BeMyPg (Name of the database)
 // mongoose.connect("mongodb://localhost:27017/BeMyPg")
 
