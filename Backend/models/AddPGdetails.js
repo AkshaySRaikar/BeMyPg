@@ -18,10 +18,26 @@ const PgSchema = mongoose.Schema(
             type  : String,
             required : true,
         },
-        Price : {
+        PriceRange : {
             type : Number,
             required : true,
-        }    
+        },
+        Rooms : [
+                {
+                    RoomType :  {
+                    type : String,
+                    required : true,
+                    },
+                    RoomPrice : {
+                        type : Number,
+                        required : true,
+                    },
+                    VacantRooms : {
+                        type : Number,
+                        required : true,
+                    }
+                }
+            ]
     }
 )
 

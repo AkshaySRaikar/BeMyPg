@@ -1,0 +1,48 @@
+import React from 'react'
+import { useForm } from "react-hook-form";
+
+const OwnerAddPG = () => {
+    const { register, 
+        handleSubmit, 
+        watch, 
+        formState: { errors,isSubmitting } } = useForm();
+
+    const onSubmit = async (data) => {
+        console.log(data);
+        const result =  await fetch('http://localhost:3000/AddNewRoom/',{method: "POST",headers:{"Content-Type":"application/json",} ,body: JSON.stringify(data)})
+        const res= await result.text(); 
+        console.log(res);
+    };
+    
+    return (
+        <>
+        {isSubmitting && <div>Loading...</div>}
+
+        <form className='flex flex-col gap-2' onSubmit={handleSubmit(onSubmit)}>
+        {/* register your input into the hook by invoking the "register" function */}
+            {/* <input  type='' placeholder='Enter Room Type' {...register("roomType",{required:{value : true, message : "Mandatory field"}})} />
+            {errors.roomType && <span className='text-red-600'>{errors.roomType.message}</span>} */}
+
+            <select className='bg-slate-300' id="occupancy" {...register("occupancy", { required: {value : true, message : "Mandatory field"}})}>
+                <option value="">-- Choose occupancy type --</option>
+                <option value="single occupancy">Single Occupancy</option>
+                <option value="double occupancy">Double Occupancy</option>
+                <option value="triple occupancy">Triple Occupancy</option>
+            </select>
+            {errors.occupancy && <span style={{ color: "red" }}>{errors.occupancy.message}</span>}
+
+            <input className='bg-slate-300' type='number' placeholder='Room Price'{...register("Roomprice",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
+                validate: (value) => !isNaN(value) || "Please enter a valid number"})} />
+            {errors.Roomprice && <span className='text-red-600'>{errors.Roomprice.message}</span>}
+                
+            <input className='bg-slate-300' type='number' placeholder='No Of Vacant Rooms'{...register("VacantRooms",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
+                validate: (value) => !isNaN(value) || "Please enter a valid number"})} />
+            {errors.VacantRooms && <span className='text-red-600'>{errors.VacantRooms.message}</span>}
+            
+            <input disabled={isSubmitting} className='bg-red-400' type="submit" />
+    </form>
+    </>
+    )
+}
+
+export default OwnerAddPG
