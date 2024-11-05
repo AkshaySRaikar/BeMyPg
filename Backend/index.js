@@ -16,7 +16,7 @@ const staticRoute=require("./routes/staticRouter");
 const pgowner=require("./routes/Pgowner");
 const pguser=require("./routes/Pguser");
 const AddNewRoomRoute = require("./routes/AddNewRoom");
-
+const ViewPgDetailsRoute = require("./routes/ViewPgDetails")
 
 // Midleware for packages
 app.use(cors())
@@ -27,6 +27,7 @@ app.use(express.urlencoded({extended:false}));
 // Midllewares or routes 
 app.use("/AddNewPgOwner",AddNewPgRoute)     // for filling the details
 app.use("/AddNewRoom",AddNewRoomRoute)
+app.use("/ViewPgDetails",ViewPgDetailsRoute)
 
 app.use("/",staticRoute);
 app.use("/owner",pgowner);      // means if url with /owner then call this

@@ -25,7 +25,8 @@ const AddNewPg =async (req,res) => {
                     RoomPrice : 0,
                     VacantRooms : 0,
                 },
-            ]
+            ],
+            // Images: images,
         })
         
         res.send("Got the data");
