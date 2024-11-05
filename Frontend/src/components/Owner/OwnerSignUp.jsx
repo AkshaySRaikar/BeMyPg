@@ -25,39 +25,46 @@ function Signup() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white rounded shadow-md">
-                <h2 className="text-2xl font-bold text-center text-gray-800">Signup</h2>
+        <div className="flex h-screen">
+            <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
+                <h2 className="text-2xl font-bold text-center text-white">Signup</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email address</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-white">Email address</label>
                         <input
                             {...register('email', { required: true })}
                             type="email"
                             id="email"
-                            className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 mt-1 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-700 "
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         {errors.email && <p className="text-red-500 text-sm">Email is required</p>}
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-white">Password</label>
                         <input
                             {...register('password', { required: true })}
                             type="password"
                             id="password"
-                            className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 mt-1 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-700 "
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         {errors.password && <p className="text-red-500 text-sm">Password is required</p>}
                     </div>
-                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600" disabled={isSubmitting}>
+                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Signup'}
                     </button>
                 </form>
             </div>
+            <div className="w-1/2">
+            <img 
+            src="https://plus.unsplash.com/premium_photo-1672423154405-5fd922c11af2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" 
+            alt="Skyscrapers viewed from below with a clear sky" 
+            className="w-full h-full object-cover" 
+            />
+        </div>
         </div>
     );
 }

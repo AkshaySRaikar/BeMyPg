@@ -103,15 +103,17 @@ const OwnerAddPG = () => {
     };
     
     return (
-        <>
+        <div className="flex items-center justify-center h-screen bg-black">
+        <div className="text-center p-8 bg-gray-900 shadow-lg rounded-lg text-white">
+        
         {isSubmitting && <div>Loading...</div>}
 
-        <form className='flex flex-col gap-2' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col gap-6 ' onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
             {/* <input  type='' placeholder='Enter Room Type' {...register("roomType",{required:{value : true, message : "Mandatory field"}})} />
             {errors.roomType && <span className='text-red-600'>{errors.roomType.message}</span>} */}
 
-            <select className='bg-slate-300' id="occupancy" {...register("occupancy", { required: {value : true, message : "Mandatory field"}})}>
+            <select className='bg-gray-900 text-white' id="occupancy" {...register("occupancy", { required: {value : true, message : "Mandatory field"}})}>
                 <option value="">-- Choose occupancy type --</option>
                 <option value="single occupancy">Single Occupancy</option>
                 <option value="double occupancy">Double Occupancy</option>
@@ -119,17 +121,18 @@ const OwnerAddPG = () => {
             </select>
             {errors.occupancy && <span style={{ color: "red" }}>{errors.occupancy.message}</span>}
 
-            <input className='bg-slate-300' type='number' placeholder='Room Price'{...register("Roomprice",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
+            <input className='bg-gray-900 text-white' type='number' placeholder='Room Price'{...register("Roomprice",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
                 validate: (value) => !isNaN(value) || "Please enter a valid number"})} />
             {errors.Roomprice && <span className='text-red-600'>{errors.Roomprice.message}</span>}
                 
-            <input className='bg-slate-300' type='number' placeholder='No Of Vacant Rooms'{...register("VacantRooms",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
+            <input className='bg-gray-900 text-white' type='number' placeholder='No Of Vacant Rooms'{...register("VacantRooms",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
                 validate: (value) => !isNaN(value) || "Please enter a valid number"})} />
             {errors.VacantRooms && <span className='text-red-600'>{errors.VacantRooms.message}</span>}
             
-            <input disabled={isSubmitting} className='bg-red-400' type="submit" />
+            <input disabled={isSubmitting} className='bg-blue-700 text-white rounded-md' type="submit" />
     </form>
-    </>
+    </div>
+    </div>
     )
 }
 
