@@ -1,3 +1,91 @@
+// import React, { useState } from 'react';
+// import { useForm } from "react-hook-form";
+
+// const OwnerAddPG = () => {
+//     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
+//     const [imageFiles, setImageFiles] = useState([]);
+
+//     const onSubmit = async (data) => {
+//         console.log(data);
+
+//         // Create a FormData object to handle both form fields and images
+//         const formData = new FormData();
+        
+//         // Append form fields to FormData
+//         for (const key in data) {
+//             formData.append(key, data[key]);
+//         }
+
+//         // Append the image files if they exist
+//         imageFiles.forEach(file => {
+//             formData.append('images', file); // Use 'images' to collect multiple files
+//         });
+
+//         // Send a POST request with FormData
+//         const result = await fetch('http://localhost:3000/AddNewRoom/', {
+//             method: "POST",
+//             body: formData // Send formData which contains both fields and files
+//         });
+
+//         const res = await result.text();
+//         console.log(res);
+//     };
+
+//     return (
+//         <>
+//             {isSubmitting && <div>Loading...</div>}
+
+//             <form className='flex flex-col gap-2' onSubmit={handleSubmit(onSubmit)}>
+//                 <select className='bg-slate-300' id="occupancy" {...register("occupancy", { required: { value: true, message: "Mandatory field" } })}>
+//                     <option value="">-- Choose occupancy type --</option>
+//                     <option value="single occupancy">Single Occupancy</option>
+//                     <option value="double occupancy">Double Occupancy</option>
+//                     <option value="triple occupancy">Triple Occupancy</option>
+//                 </select>
+//                 {errors.occupancy && <span style={{ color: "red" }}>{errors.occupancy.message}</span>}
+
+//                 <input className='bg-slate-300' type='number' placeholder='Room Price' {...register("Roomprice", {
+//                     required: { value: true, message: "Mandatory field" },
+//                     valueAsNumber: true,
+//                     validate: (value) => !isNaN(value) || "Please enter a valid number"
+//                 })} />
+//                 {errors.Roomprice && <span className='text-red-600'>{errors.Roomprice.message}</span>}
+
+//                 <input className='bg-slate-300' type='number' placeholder='No Of Vacant Rooms' {...register("VacantRooms", {
+//                     required: { value: true, message: "Mandatory field" },
+//                     valueAsNumber: true,
+//                     validate: (value) => !isNaN(value) || "Please enter a valid number"
+//                 })} />
+//                 {errors.VacantRooms && <span className='text-red-600'>{errors.VacantRooms.message}</span>}
+
+//                 {/* Image upload input */}
+//                 <input 
+//                     type="file" 
+//                     accept="image/*" 
+//                     onChange={(e) => setImageFiles(Array.from(e.target.files))} 
+//                     multiple
+//                     className='bg-slate-300'
+//                 />
+//                 {imageFiles.length > 0 && (
+//                     <div>
+//                         <span>Selected images:</span>
+//                         <ul>
+//                             {imageFiles.map((file, index) => (
+//                                 <li key={index}>{file.name}</li>
+//                             ))}
+//                         </ul>
+//                     </div>
+//                 )}
+
+//                 <input disabled={isSubmitting} className='bg-red-400' type="submit" />
+//             </form>
+//         </>
+//     );
+// }
+
+// export default OwnerAddPG;
+
+
 import React from 'react'
 import { useForm } from "react-hook-form";
 
