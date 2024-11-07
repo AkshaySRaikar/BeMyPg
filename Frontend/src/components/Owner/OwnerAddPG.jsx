@@ -15,7 +15,7 @@ const OwnerAddPG = () => {
     };
     
     return (
-        <div className="flex h-screen justify-center items-center bg-black">
+        <div className="flex h-screen justify-center items-center bg-gradient-to-l from-black to-gray-700">
         <div className="bg-gray-900 text-white p-8 rounded-lg shadow-xl max-w-md w-full">
         {isSubmitting && <div>Loading...</div>}
         

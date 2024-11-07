@@ -6,7 +6,7 @@ const OwnerHomePage = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex items-center justify-center h-screen bg-black">
+        <div className="flex items-center justify-center h-screen bg-gradient-to-l from-black to-gray-700">
         <div className="text-center p-8 bg-gray-900 shadow-lg rounded-lg">
             <h1 className="text-3xl font-bold mb-6 text-white">Owner Dashboard</h1>
             <p className="text-lg mb-8 text-white">Manage your PG listings and rooms.</p>

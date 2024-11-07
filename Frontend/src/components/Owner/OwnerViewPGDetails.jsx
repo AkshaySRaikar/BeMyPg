@@ -45,24 +45,24 @@ const OwnerPGDetails = () => {
     }
 
     return (
-        <div className="p-8 max-w-3xl mx-auto bg-white shadow-lg rounded-lg">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">PG Details</h1>
+        <div className="p-8 max-w-3xl mx-auto bg-gradient-to-l from-black to-gray-700 shadow-lg rounded-lg">
+        <h1 className="text-3xl font-bold mb-4 text-white">PG Details</h1>
 
         <div className="mb-6">
-            <h2 className="text-2xl font-semibold text-gray-700">{pgDetails.PGname}</h2>
-            <p className="text-gray-600">Phone: {pgDetails.PhNumber}</p>
-            <p className="text-gray-600">Address: {pgDetails.Address}</p>
-            <p className="text-gray-600">City: {pgDetails.City}</p>
-            <p className="text-gray-600">Price Range: ₹{pgDetails.PriceRange}</p>
+            <h2 className="text-2xl font-semibold text-white">{pgDetails.PGname}</h2>
+            <p className="text-white">Phone: {pgDetails.PhNumber}</p>
+            <p className="text-white">Address: {pgDetails.Address}</p>
+            <p className="text-white">City: {pgDetails.City}</p>
+            <p className="text-white">Price Range: ₹{pgDetails.PriceRange}</p>
         </div>
 
         <div>
-            <h3 className="text-xl font-bold mb-3 text-gray-700">Rooms</h3>
+            <h3 className="text-xl font-bold mb-3 text-white">Rooms</h3>
             {pgDetails.Rooms.map((room) => (
-            <div key={room._id.$oid} className="mb-4 p-4 bg-gray-100 rounded-lg shadow">
-                <p className="text-lg font-semibold text-gray-800">Room Type: {room.RoomType}</p>
-                <p className="text-gray-600">Price: ₹{room.RoomPrice}</p>
-                <p className="text-gray-600">Vacant Rooms: {room.VacantRooms}</p>
+            <div key={room._id.$oid} className="mb-4 p-4 bg-gray-900 rounded-lg shadow">
+                <p className="text-lg font-semibold text-white">Room Type: {room.RoomType}</p>
+                <p className="text-white">Price: ₹{room.RoomPrice}</p>
+                <p className="text-white">Vacant Rooms: {room.VacantRooms}</p>
             </div>
             ))}
         </div>
