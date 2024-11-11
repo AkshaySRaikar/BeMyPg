@@ -1,31 +1,38 @@
-const pgModel =require("../models/AddPGdetails")
-const ownerModel =require("../models/pgowner")
+const pgModel = require("../models/AddPGdetails");
+const ownerModel = require("../models/pgowner");
 
-const OwnerProfile = async(req,res) => {
-    // const result = await pgModel.find({})
-    const result1 = await ownerModel.findOne({_id: '6727347ac205fb512c18df34' })
-    const result2 = await pgModel.findOne({_id: '6727b380b7ed3dff4f3efd07' })
-    console.log("result",result1)
+const OwnerProfile = async (req, res) => {
+    try {
+     
+        const ownerId = req.user._id;
 
-    const profile ={
-        "owner": {
-            // "name": "John Doe",
-            email: result1.email,
-            // "phone": "9876543210"
-            },
-            "pgDetails": [
-            {
-                "PGname": result2.PGname,
-                "Address": result2.Address,
-                "City": result2.City,
-                "PhNumber": result2.PhNumber,
-                "PriceRange": result2.PriceRange,
-            },
-            // Additional PGs
-            ]
+        // Find the owner and PG details
+        const owner = await ownerModel.findById(ownerId);
+        const pgDetails = await pgModel.find({ createdBy: ownerId });
+
+        if (!owner) {
+            return res.status(404).send("Owner not found");
         }
-        res.send(profile);
-    }   
 
+       
+        const profile = {
+            owner: {
+                email: owner.email,
+            },
+            pgDetails: pgDetails.map(pg => ({
+                PGname: pg.PGname,
+                Address: pg.Address,
+                City: pg.City,
+                PhNumber: pg.PhNumber,
+                PriceRange: pg.PriceRange,
+            })),
+        };
 
-module.exports = {OwnerProfile};
+        res.json(profile);
+    } catch (error) {
+        console.error('Error fetching owner profile:', error);
+        res.status(500).send("Server error");
+    }
+};
+
+module.exports = { OwnerProfile };

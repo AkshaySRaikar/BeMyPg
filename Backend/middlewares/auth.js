@@ -1,0 +1,24 @@
+const {getuser}=require("../service/auth");
+
+async function restrictToLoggedinUserOnly(req,res,next){
+    const userUid=req.cookies?.uid;
+
+    if(!userUid)
+        return res.json({ success: true, redirect: "http://localhost:5173/OwnerLogin" });
+    
+    const user=getuser(userUid);
+
+    if(!user) 
+        return res.json({ success: true, redirect: "http://localhost:5173/OwnerLogin" });
+    req.user=user;
+    console.log(req.user._id);
+    console.log("got the id ")
+    next();
+
+}
+
+
+
+module.exports={
+    restrictToLoggedinUserOnly,
+}

@@ -1,4 +1,3 @@
-// src/components/Login.jsx
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -6,25 +5,26 @@ function Login() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
 
     const onSubmit = async (data) => {
-        console.log('Form Data:', data);
         try {
             const result = await fetch('http://localhost:3000/owner/login/', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
+                credentials: "include",
             });
+
             const res = await result.json();
-    
+
             if (res.success) {
-                window.location.href = res.redirect; // Redirect the user on the frontend
+                // Redirect the user on successful login
+                window.location.href = res.redirect;
             } else {
-                console.error(res.message); // Handle any error messages
+                console.error(res.message); // Handle error messages
             }
         } catch (error) {
             console.error('Error:', error);
         }
     };
-    
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">

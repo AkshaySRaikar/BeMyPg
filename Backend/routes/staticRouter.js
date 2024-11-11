@@ -1,5 +1,6 @@
 const express=require("express");
 const router=express.Router();
+// const details
 
 // router.get("/",(req,res)=>{
 // return res.send("home");

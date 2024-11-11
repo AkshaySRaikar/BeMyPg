@@ -13,9 +13,9 @@ const userschema= new mongoose.Schema({
         type:String,
         required:true,
     },
-    
+ 
 })
 
-const Pgowner=mongoose.model("Owner",userschema);
+const Pgowner=mongoose.model("owner",userschema);
 module.exports=Pgowner;
 
