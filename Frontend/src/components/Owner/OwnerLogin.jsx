@@ -28,7 +28,7 @@ function Login() {
 
     return (
         <div className="flex h-screen">
-            <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
+            <div className="w-1/2 bg-gradient-to-l from-black to-gray-500 flex flex-col justify-center items-center p-8">
                 <h2 className="text-2xl font-bold text-center text-white">Login</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
@@ -51,7 +51,7 @@ function Login() {
                         />
                         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                     </div>
-                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700" disabled={isSubmitting}>
+                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-green-600 rounded-full hover:bg-green-700" disabled={isSubmitting}>
                         {isSubmitting ? 'Logging in...' : 'Login'}
                     </button>
                 </form>

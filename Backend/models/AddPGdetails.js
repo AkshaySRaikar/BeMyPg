@@ -36,6 +36,12 @@ const PgSchema = mongoose.Schema(
                     type: Number,
                     required: true,
                 },
+                Images: [
+                    {
+                        type: String, // URL or file path of the image
+                        required: false, // Not required in case no images are added
+                    },
+                ],
             },
         ],
         // Images: [

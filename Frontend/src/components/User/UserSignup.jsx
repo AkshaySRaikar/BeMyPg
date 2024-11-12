@@ -26,7 +26,7 @@ function Signup() {
 
     return (
         <div className="flex h-screen">
-            <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
+            <div className="w-1/2 bg-gradient-to-l from-black to-gray-700 flex flex-col justify-center items-center p-8">
                 <h2 className="text-2xl font-bold text-center text-white">Signup</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
@@ -53,8 +53,7 @@ function Signup() {
                         />
                         {errors.password && <p className="text-red-500 text-sm">Password is required</p>}
                     </div>
-                   
-                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700" disabled={isSubmitting}>
+                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-600 rounded-full hover:bg-blue-800" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Signup'}
                     </button>
                 </form>

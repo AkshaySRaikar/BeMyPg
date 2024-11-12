@@ -14,19 +14,21 @@ const AddNewPg =async (req,res) => {
                     RoomType : "Single Occupancy",
                     RoomPrice : 0,
                     VacantRooms : 0,
+                    Images: []
                 },
                 {
                     RoomType : "Double Occupancy",
                     RoomPrice : 0,
                     VacantRooms : 0,
+                    Images: []
                 },
                 {
                     RoomType : "Triple Occupancy",
                     RoomPrice : 0,
                     VacantRooms : 0,
+                    Images: []
                 },
-            ],
-            // Images: images,
+            ],      
         })
         
         res.send("Got the data");

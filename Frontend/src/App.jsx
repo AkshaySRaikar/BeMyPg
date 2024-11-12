@@ -9,10 +9,16 @@ import AddPg from './components/Owner/OwnerAddPG'
 import ViewPgDetails from './components/Owner/OwnerViewPGDetails'
 import OwnerLogin from './components/Owner/OwnerLogin'
 import OwnerSignUp from './components/Owner/OwnerSignUp'
+import OwnerProfile from './components/Owner/OwnerProfile'
 import UserLogin from './components/User/UserLogin'
 import UserSignUp from './components/User/UserSignup'
 import AddRoomOwner from './components/Owner/OwnerAddNewRoom'
-function App() 
+import OwnerPGBookingDetails from './components/Owner/OwnerPGBookingDetails'
+import UserHome from './components/User/UserHome'
+import UserProfile from './components/User/UserViewProfile'
+import UserFindPgByCity from './components/User/UserFindPgByCity'
+
+function App()
 {
   // const [count, setCount] = useState(0)
   const router = createBrowserRouter(
@@ -42,6 +48,18 @@ function App()
         element : <><OwnerSignUp/></>
       },
       {
+        path  : "/AddRoomOwner",
+        element : <><AddRoomOwner/></>
+      },
+      {
+        path  : "/OwnerProfile",
+        element : <><OwnerProfile/></>
+      },
+      {
+        path  : "/OwnerPGBookingDetails",
+        element : <><OwnerPGBookingDetails/></>
+      },
+      {
         path : "/UserLogin",
         element : <><UserLogin/></>
       },
@@ -50,9 +68,18 @@ function App()
         element : <><UserSignUp/></>
       },
       {
-        path  : "/AddRoomOwner",
-        element : <><AddRoomOwner/></>
-      }
+        path : "/UserHome",
+        element : <><UserHome/></>
+      },
+      {
+        path : "/UserProfile",
+        element : <><UserProfile/></>
+      },
+      {
+        path : "/UserFindPgByCity",
+        element : <><UserFindPgByCity/></>
+      },
+
     ]
   )
 
