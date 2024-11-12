@@ -41,11 +41,11 @@ app.use(cors({
 
 // Midllewares or routes 
 app.use("/AddNewPgOwner",restrictToLoggedinUserOnly,AddNewPgRoute)     // for filling the details
-app.use("/AddNewRoom",AddNewRoomRoute)
-app.use("/ViewPgDetails",ViewPgDetailsRoute)
-app.use("/OwnerProfile",OwnerProfile)
-app.use("/UserProfile",UserProfile)
-app.use("/UserFindPgByCity",UserFindPgByCity)
+app.use("/AddNewRoom",restrictToLoggedinUserOnly,AddNewRoomRoute)
+app.use("/ViewPgDetails",restrictToLoggedinUserOnly,ViewPgDetailsRoute)
+app.use("/OwnerProfile",restrictToLoggedinUserOnly,OwnerProfile)
+app.use("/UserProfile",restrictToLoggedinUserOnly,UserProfile)
+app.use("/UserFindPgByCity",restrictToLoggedinUserOnly,UserFindPgByCity)
 
 app.use("/",staticRoute);
 app.use("/owner",pgowner);      // means if url with /owner then call this

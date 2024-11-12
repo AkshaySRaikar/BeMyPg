@@ -58,7 +58,7 @@ const OwnerAddPG = () => {
 
     const onSubmit = async (data) => {
         console.log(data);
-        const result =  await fetch('http://localhost:3000/AddNewPgOwner/',{method: "POST",headers:{"Content-Type":"application/json",} ,body: JSON.stringify(data)})
+        const result =  await fetch('http://localhost:3000/AddNewPgOwner/',{method: "POST",headers:{"Content-Type":"application/json",} ,credentials:"include",body: JSON.stringify(data)})
         const res= await result.text(); 
         console.log(res);
     };

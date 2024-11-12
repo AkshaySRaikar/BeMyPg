@@ -37,12 +37,12 @@ async function login(req, res) {
     // const sessionid=uuidv4();
     // setuser(sessionid,user);
   const token= setuser(user);
-    res.cookie('uid', 'your_session_id', {
-        httpOnly: true,  // Secure the cookie (accessible only by the server)
-        secure: false,   // Set to true if using HTTPS
-        sameSite: 'Lax',  // SameSite policy (protects against CSRF)
-        maxAge: 1000 * 60 * 60 * 24,  // 1 day expiration
-      });
+    // res.cookie('uid', 'your_session_id', {
+    //     httpOnly: true,  // Secure the cookie (accessible only by the server)
+    //     secure: false,   // Set to true if using HTTPS
+    //     sameSite: 'Lax',  // SameSite policy (protects against CSRF)
+    //     maxAge: 1000 * 60 * 60 * 24,  // 1 day expiration
+    //   });
     res.cookie("uid",token);
    //res.cookie('uid',sessionid);
     // Instead of redirecting, send a JSON response indicating success

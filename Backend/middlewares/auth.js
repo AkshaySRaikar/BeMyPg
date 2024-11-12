@@ -1,12 +1,12 @@
 const {getuser}=require("../service/auth");
 
 async function restrictToLoggedinUserOnly(req,res,next){
-    const userUid=req.cookies?.uid;
-
+    const userUid=req.cookies?.uid; // ? if u get error as properties of undefined pointing on req.cookie.....
     if(!userUid)
         return res.json({ success: true, redirect: "http://localhost:5173/OwnerLogin" });
     
     const user=getuser(userUid);
+  
 
     if(!user) 
         return res.json({ success: true, redirect: "http://localhost:5173/OwnerLogin" });

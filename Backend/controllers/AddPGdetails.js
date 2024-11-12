@@ -1,8 +1,9 @@
 const pgModel =require("../models/AddPGdetails")
-
+const {getuser}=require("../service/auth");
 const AddNewPg =async (req,res) => {        
         // console.log(req.body.pgName);
         const body=req.body;
+   
        // console.log(req.user._id);
         await pgModel.create({
             PGname : body.pgName,
@@ -30,7 +31,7 @@ const AddNewPg =async (req,res) => {
                     Images: []
                 },
             ],
-           createdBy: req.user._id,
+          createdBy: req.user._id,
         })
       
         console.log("got the pg details")
