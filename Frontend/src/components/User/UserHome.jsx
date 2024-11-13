@@ -5,8 +5,8 @@ const OwnerHomePage = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gradient-to-l from-black to-gray-700">
-        <div className="text-center p-8 bg-gray-900 shadow-lg rounded-lg">
+        <div className="flex items-center justify-center min-h-screen bg-repeat" style={{ backgroundImage: 'url("https://i0.wp.com/picjumbo.com/wp-content/uploads/abstract-image-glass-city-skyscrapers-free-photo.jpeg?w=600&quality=80")' }}>
+        <div className="text-center p-8 bg-gradient-to-t from-black to-gray-400 shadow-lg rounded-lg">
             <h1 className="text-3xl font-bold mb-6 text-white">User Dashboard</h1>
             <p className="text-lg mb-8 text-white">Manage your PG listings and rooms.</p>
             <div className="space-y-4">
