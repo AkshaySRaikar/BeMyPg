@@ -1,5 +1,5 @@
 const jwt=require("jsonwebtoken")
-const secret="Amogh$123"
+const secret="Amogh$124"
 function setuser(user)
 {
    

@@ -17,6 +17,7 @@ import OwnerPGBookingDetails from './components/Owner/OwnerPGBookingDetails'
 import UserHome from './components/User/UserHome'
 import UserProfile from './components/User/UserViewProfile'
 import UserFindPgByCity from './components/User/UserFindPgByCity'
+import UserPgList from './components/User/UserPgList'
 
 function App()
 {
@@ -72,12 +73,16 @@ function App()
         element : <><UserHome/></>
       },
       {
-        path : "/UserProfile",
+        path : "/UserViewProfile",
         element : <><UserProfile/></>
       },
       {
         path : "/UserFindPgByCity",
         element : <><UserFindPgByCity/></>
+      },
+      {
+        path : "/UserPgList",
+        element : <><UserPgList/></>
       },
 
     ]
