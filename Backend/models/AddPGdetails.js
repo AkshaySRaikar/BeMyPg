@@ -44,6 +44,15 @@ const PgSchema = mongoose.Schema(
                 ],
             },
         ],
+        createdBy:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"owners",
+        },
+
+        // users:{
+        //     type:mongoose.Schema.Types.ObjectId,
+        //     ref:"pgusers",
+        // },
         // Images: [
         //     {
         //         type: String, // URL or path to the image

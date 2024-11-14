@@ -1,4 +1,3 @@
-// src/components/Login.jsx
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -6,29 +5,34 @@ function Login() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
 
     const onSubmit = async (data) => {
-        console.log('Form Data:', data);
         try {
             const result = await fetch('http://localhost:3000/owner/login/', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
+                credentials: "include",
             });
+
             const res = await result.json();
-    
+
             if (res.success) {
-                window.location.href = res.redirect; // Redirect the user on the frontend
+                // Redirect the user on successful login
+                window.location.href = res.redirect;
             } else {
-                console.error(res.message); // Handle any error messages
+                console.error(res.message); // Handle error messages
             }
         } catch (error) {
             console.error('Error:', error);
         }
     };
-    
 
     return (
         <div className="flex h-screen">
+
+            <div className="w-1/2 bg-gradient-to-l from-black to-gray-500 flex flex-col justify-center items-center p-8">
+
             <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
+
                 <h2 className="text-2xl font-bold text-center text-white">Login</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
@@ -51,7 +55,11 @@ function Login() {
                         />
                         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                     </div>
+
+                    <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-green-600 rounded-full hover:bg-green-700" disabled={isSubmitting}>
+
                     <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700" disabled={isSubmitting}>
+
                         {isSubmitting ? 'Logging in...' : 'Login'}
                     </button>
                 </form>

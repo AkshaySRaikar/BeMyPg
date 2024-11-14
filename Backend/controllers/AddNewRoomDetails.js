@@ -128,10 +128,10 @@ const AddNewRoom = async (req, res) => {
 
         // Prepare the image paths for the database
         const imagePaths = req.files.map(file => `/uploads/${file.filename}`);
-
+        const ownerId = req.user._id;
         try {
             const result = await pgModel.updateOne(
-                { _id: '6727b380b7ed3dff4f3efd07' }, // Replace with the actual PG ID
+                {createdBy: ownerId}, // Replace with the actual PG ID
                 {
                     $set: {
                         [`Rooms.${num}.RoomPrice`]: body.Roomprice,

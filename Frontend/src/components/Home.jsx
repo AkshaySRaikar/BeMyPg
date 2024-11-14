@@ -9,12 +9,16 @@ const HomePage = () => {
         <div className="flex h-screen">
         <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
             <h1 className="text-6xl font-bold mb-4 gradient-text-animation">BeMyPG</h1>
+
+            <p className="text-white mb-6"> Who are you?</p>
+
             <p className="text-white mb-6"> Who the end user is?</p>
+
             <div className="w-full max-w-sm">
             {/* <a href="combine.html"> */}
                 <button 
                 type="button" 
-                className="w-full bg-blue text-white p-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 mb-4"
+                className="w-full bg-blue-600 text-white p-3 rounded-full font-semibold hover:bg-blue-800 transition duration-300 mb-4"
                 onClick={() => navigate('/UserSignup')}>
                 User
                 </button>
@@ -22,7 +26,7 @@ const HomePage = () => {
             {/* <a href="combineowner.html"> */}
                 <button 
                 type="button" 
-                className="w-full bg-blue text-white p-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
+                className="w-full bg-cyan-500 text-white p-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300"
                 onClick={() => navigate('/OwnerSignUp')}>
                 Owner
                 </button>
