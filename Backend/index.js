@@ -20,6 +20,7 @@ const ViewPgDetailsRoute = require("./routes/ViewPgDetails");
 const OwnerProfile = require("./routes/OwnerProfile.js");
 const UserProfile = require("./routes/UserProfile.js");
 const UserFindPgByCity = require("./routes/UserFindPgByCity.js");
+const GetPgByCity = require("./routes/GetPgByCity.js");
 
 // Midleware for packages
 app.use(cors())
@@ -38,6 +39,7 @@ app.use("/UserProfile",UserProfile)
 
 
 app.use("/UserFindPgByCity",UserFindPgByCity)
+app.use("/GetPgByCity",GetPgByCity)
 
 app.use("/",staticRoute);
 app.use("/owner",pgowner);      // means if url with /owner then call this
