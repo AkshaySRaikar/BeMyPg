@@ -18,7 +18,8 @@ import UserHome from './components/User/UserHome'
 import UserProfile from './components/User/UserViewProfile'
 import UserFindPgByCity from './components/User/UserFindPgByCity'
 import UserPgList from './components/User/UserPgList'
-import Rating from './components/User/RatingMain'
+import RatingMain from './components/User/RatingMain'
+import PgDetailPage from './components/User/PgDetailPage'
 
 function App()
 {
@@ -85,10 +86,14 @@ function App()
         path : "/UserPgList",
         element : <><UserPgList/></>
       },
+      {
+        path : "/PgDetailPage",
+        element : <><PgDetailPage/></>
+      },
 
       {
-        path:"/Rating",
-        element:<><Rating/></>
+        path:"/RatingMain",
+        element:<><RatingMain/></>
       }
 
     ]

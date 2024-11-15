@@ -11,10 +11,6 @@ const cookieParser=require("cookie-parser");
 const {restrictToLoggedinUserOnly}=require("./middlewares/auth");
 const {restrictToLoggedinPgUserOnly}=require("./middlewares/auth2");
 
-const {connectomongodb}=require("./connect");
-const app = express();
-const port = 3000;
-
 
 connectomongodb("mongodb://localhost:27017/BeMyPg")
 .then(()=>console.log("Mongodbconnected"));
