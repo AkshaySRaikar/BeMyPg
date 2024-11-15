@@ -54,11 +54,8 @@ const PgSchema = mongoose.Schema(
                     min: 1,
                     max: 5, // Assuming a rating out of 5
                 },
-                date: {
-                    type: Date,
-                    default: Date.now,
-                },
-            },
+             
+            }
         ],
 
         // Updated Feedback schema to store only message
@@ -68,17 +65,19 @@ const PgSchema = mongoose.Schema(
                     type: String,
                     required: true,
                 },
-                date: {
-                    type: Date,
-                    default: Date.now,
-                },
-            },
+            }
+            
         ],
 
         createdBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "owners",
         },
+
+        user:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "pgusers",
+        }
     },
 );
 

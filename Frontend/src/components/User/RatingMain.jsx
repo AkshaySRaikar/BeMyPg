@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
-
+import { useForm } from 'react-hook-form';
 const PgReview = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -9,6 +9,7 @@ const PgReview = () => {
     const [review, setReview] = useState('');
     const [rating, setRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
 
     if (!pg) {
         return <div>No PG details found.</div>;
@@ -24,12 +25,22 @@ const PgReview = () => {
     const handleStarHoverLeave = () => setHoverRating(0);
 
     // Submit the review and rating as an object
-    const handleSubmitReview = () => {
-        const reviewData = {
-            pg_id: pg._id,
-            ratings: rating,  // Integer value for the rating (number of stars)
-            feedback: review,  // String value for the review text
-        };
+   
+
+        const onSubmit = async (data) => {
+            const reviewData = {
+                pg_id: pg._id,
+                ratings: rating,  // Integer value for the rating (number of stars)
+                feedback: review,  // String value for the review text
+            };
+            console.log(data);
+            const result =  await fetch('http://localhost:3000/rating/',{method: "POST",headers:{"Content-Type":"application/json",} ,credentials:"include",body: JSON.stringify(reviewData)})
+            const res= await result.text(); 
+            console.log(res);
+
+           
+
+             
 
         // Log the review object (You can replace this with an API call to send data to the backend)
         console.log('Review Submitted:', reviewData);
@@ -40,7 +51,12 @@ const PgReview = () => {
 
         // Navigate back to the previous page
         navigate(-1);
-    };
+    
+
+        };
+        
+
+      
 
     return (
         <div className="bg-gray-100 min-h-screen p-8 flex flex-col items-center">
@@ -93,7 +109,7 @@ const PgReview = () => {
 
                 {/* Submit button */}
                 <button
-                    onClick={handleSubmitReview}
+                    onClick={handleSubmit(onSubmit)}
                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
                 >
                     Submit Review
