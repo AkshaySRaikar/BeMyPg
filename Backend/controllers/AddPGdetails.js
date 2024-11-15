@@ -30,7 +30,11 @@ const AddNewPg =async (req,res) => {
                     Images: []
                 },
             ],
+
+            Review: [], // Initialize Review as an empty array
+            Feedback: [],
             createdBy: req.user._id,
+        
             })
         
             console.log("got the pg details")
@@ -40,3 +44,4 @@ const AddNewPg =async (req,res) => {
     }
 
 module.exports = {AddNewPg};
+

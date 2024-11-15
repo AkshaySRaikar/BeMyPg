@@ -44,21 +44,41 @@ const PgSchema = mongoose.Schema(
                 ],
             },
         ],
-        createdBy:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"owners",
-        },
 
-        // users:{
-        //     type:mongoose.Schema.Types.ObjectId,
-        //     ref:"pgusers",
-        // },
-        // Images: [
-        //     {
-        //         type: String, // URL or path to the image
-        //         required: false, // Optional, you can make this required if needed
-        //     },
-        // ],
+        // Updated Review schema to store only rating
+        Review: [
+            {
+                rating: {
+                    type: Number,
+                    required: true,
+                    min: 1,
+                    max: 5, // Assuming a rating out of 5
+                },
+                date: {
+                    type: Date,
+                    default: Date.now,
+                },
+            },
+        ],
+
+        // Updated Feedback schema to store only message
+        Feedback: [
+            {
+                message: {
+                    type: String,
+                    required: true,
+                },
+                date: {
+                    type: Date,
+                    default: Date.now,
+                },
+            },
+        ],
+
+        createdBy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "owners",
+        },
     },
 );
 
