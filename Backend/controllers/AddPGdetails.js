@@ -30,13 +30,20 @@ const AddNewPg =async (req,res) => {
                     Images: []
                 },
             ],
+
+            Review: [body.ratings], // Initialize Review as an empty array
+            Feedback: [body.feedback],
             createdBy: req.user._id,
+        
             })
         
             console.log("got the pg details")
             res.send("Got the data");
         
             console.log(body)
+
+            
     }
 
 module.exports = {AddNewPg};
+

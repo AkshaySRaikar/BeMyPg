@@ -11,15 +11,12 @@ const cookieParser=require("cookie-parser");
 const {restrictToLoggedinUserOnly}=require("./middlewares/auth");
 const {restrictToLoggedinPgUserOnly}=require("./middlewares/auth2");
 
-const {connectomongodb}=require("./connect");
-const app = express();
-const port = 3000;
-
 
 connectomongodb("mongodb://localhost:27017/BeMyPg")
 .then(()=>console.log("Mongodbconnected"));
 
 // importing the routes : 
+const rating=require("./routes/Ratings");
 const AddNewPgRoute = require("./routes/AddPGdetails");
 const staticRoute=require("./routes/staticRouter");
 const pgowner=require("./routes/Pgowner");
@@ -29,9 +26,7 @@ const ViewPgDetailsRoute = require("./routes/ViewPgDetails");
 const OwnerProfile = require("./routes/OwnerProfile.js");
 const UserProfile = require("./routes/UserProfile.js");
 const UserFindPgByCity = require("./routes/UserFindPgByCity.js");
-
 const GetPgByCity = require("./routes/GetPgByCity.js");
-
 
 
 // Midleware for packages
@@ -60,6 +55,7 @@ app.use("/UserProfile",restrictToLoggedinPgUserOnly,UserProfile)
 app.use("/UserFindPgByCity",restrictToLoggedinPgUserOnly,UserFindPgByCity)
 app.use("/GetPgByCity",restrictToLoggedinPgUserOnly,GetPgByCity) 
 
+app.use("/rating",rating);
 
 app.use("/",staticRoute);
 app.use("/owner",pgowner);      // means if url with /owner then call this

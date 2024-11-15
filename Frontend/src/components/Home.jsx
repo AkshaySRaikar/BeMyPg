@@ -10,7 +10,7 @@ const HomePage = () => {
         <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
             <h1 className="text-6xl font-bold mb-4 gradient-text-animation">BeMyPG</h1>
 
-            <p className="text-white mb-6"> Who are you?</p>
+            {/* <p className="text-white mb-6"> Who are you?</p> */}
 
             <p className="text-white mb-6"> Who the end user is?</p>
 
