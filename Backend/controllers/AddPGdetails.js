@@ -31,8 +31,8 @@ const AddNewPg =async (req,res) => {
                 },
             ],
 
-            Review: [], // Initialize Review as an empty array
-            Feedback: [],
+            Review: [body.ratings], // Initialize Review as an empty array
+            Feedback: [body.feedback],
             createdBy: req.user._id,
         
             })
@@ -41,6 +41,8 @@ const AddNewPg =async (req,res) => {
             res.send("Got the data");
         
             console.log(body)
+
+            
     }
 
 module.exports = {AddNewPg};
