@@ -1,9 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html, body {
     height: 100%;
     }
+
 /*
 .gradient-text-animation {
     background: linear-gradient(

@@ -66,6 +66,7 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 function Signup() {
     const [email, setEmail] = useState('');
@@ -75,19 +76,24 @@ function Signup() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
 
     const onSubmit = async (data) => {
-        console.log('Form Data:', data);
         try {
             const result = await fetch('http://localhost:3000/owner/', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             });
-            const res = await result.text();
-            console.log('Response from server:', res);
+            const res = await result.json();
+
+            if (res.success) {
+                // Redirect the user on successful login
+                window.location.href = res.redirect;
+            } else {
+                console.error(res.message); // Handle error messages
+            }
         } catch (error) {
             console.error('Error:', error);
         }
-    }
+    };
 
     return (
         <div className="flex h-screen">
@@ -118,11 +124,23 @@ function Signup() {
                         />
                         {errors.password && <p className="text-red-500 text-sm">Password is required</p>}
                     </div>
+                  
                     <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Signup'}
                     </button>
+                    <div>
+    <li style={{ listStyleType: "none", textAlign: "center", marginTop: "1rem" }}>
+        <Link to="/OwnerLogin" style={{ color: "white", textDecoration: "underline" }}>
+            Login
+        </Link>
+    </li>
+</div>
+
+                    
                 </form>
             </div>
+          
+
             <div className="w-1/2">
             <img 
             src="https://plus.unsplash.com/premium_photo-1672423154405-5fd922c11af2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" 

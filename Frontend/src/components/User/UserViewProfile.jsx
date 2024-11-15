@@ -9,7 +9,7 @@ const UserProfile = () => {
         // Fetch User profile and PG details from the backend
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/UserProfile'); // Adjust API endpoint as needed
+                const response = await fetch('http://localhost:3000/UserProfile',{method: "GET",credentials:"include"}); // Adjust API endpoint as needed
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

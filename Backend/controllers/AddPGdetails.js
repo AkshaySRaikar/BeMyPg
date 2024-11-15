@@ -1,8 +1,9 @@
 const pgModel =require("../models/AddPGdetails")
-
+const {getuser}=require("../service/auth");
 const AddNewPg =async (req,res) => {        
         // console.log(req.body.pgName);
         const body=req.body;
+       // console.log(req.user._id);
         await pgModel.create({
             PGname : body.pgName,
             PhNumber : body.phNumber,
@@ -28,11 +29,19 @@ const AddNewPg =async (req,res) => {
                     VacantRooms : 0,
                     Images: []
                 },
-            ],      
-        })
+            ],
+
+            Review: [], // Initialize Review as an empty array
+            Feedback: [],
+            createdBy: req.user._id,
         
-        res.send("Got the data");
-        console.log(body)
+            })
+        
+            console.log("got the pg details")
+            res.send("Got the data");
+        
+            console.log(body)
     }
 
 module.exports = {AddNewPg};
+
