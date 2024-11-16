@@ -58,7 +58,7 @@ const OwnerAddPG = () => {
 
     const onSubmit = async (data) => {
         console.log(data);
-        const result =  await fetch('http://localhost:3000/AddNewPgOwner/',{method: "POST",headers:{"Content-Type":"application/json",} ,body: JSON.stringify(data)})
+        const result =  await fetch('http://localhost:3000/AddNewPgOwner/',{method: "POST",headers:{"Content-Type":"application/json",} ,credentials:"include",body: JSON.stringify(data)})
         const res= await result.text(); 
         console.log(res);
     };
@@ -88,6 +88,9 @@ const OwnerAddPG = () => {
             <input className='bg-gradient-to-r from-black to-gray-500 text-white placeholder-white' type='number' placeholder='Price Range'{...register("price",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,
                 validate: (value) => !isNaN(value) || "Please enter a valid number"})} />
             {errors.price && <span className='text-red-600'>{errors.price.message}</span>}
+
+            <input className='bg-gradient-to-r from-black to-gray-500 text-white placeholder-white' type='text' placeholder="Food Menu" {...register("foodmenu",{required:{value : true, message : "Mandatory field"}})} />
+            {errors.foodmenu && <span className='text-red-600'>{errors.foodmenu.message}</span>}
             
             <input disabled={isSubmitting} className='bg-gray-400 text-black rounded-md' type="submit" />
     </form>

@@ -1,5 +1,6 @@
 const User=require("../models/pgowner");
-
+const {v4:uuidv4}=require("uuid");
+const {setuser}=require("../service/auth")
 async function signup(req,res) {
     const{name,email,password}=req.body;
     await User.create({
@@ -29,8 +30,23 @@ async function login(req, res) {
     }
 
     console.log("success");
+
+    
+   
+    console.log(user);
+    // const sessionid=uuidv4();
+    // setuser(sessionid,user);
+  const token= setuser(user);
+    // res.cookie('uid', 'your_session_id', {
+    //     httpOnly: true,  // Secure the cookie (accessible only by the server)
+    //     secure: false,   // Set to true if using HTTPS
+    //     sameSite: 'Lax',  // SameSite policy (protects against CSRF)
+    //     maxAge: 1000 * 60 * 60 * 24,  // 1 day expiration
+    //   });
+    res.cookie("uid",token);
+   //res.cookie('uid',sessionid);
     // Instead of redirecting, send a JSON response indicating success
-    return res.json({ success: true, redirect: "http://localhost:5173/OwnerSignUp" });
+    return res.json({ success: true, redirect: "http://localhost:5173/OwnerHome" });
 }
 
 

@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const CitySelection = () => {
     const [cities, setCities] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch cities from the backend
         const fetchCities = async () => {
             try {
-                const response = await fetch('http://localhost:3000/UserFindPgByCity'); // Adjust API endpoint as needed
+                const response = await fetch('http://localhost:3000/UserFindPgByCity/', {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json" },
+                    // body: JSON.stringify({city}),
+                    credentials:"include",
+                }); // Adjust API endpoint as needed
     
                 if (!response.ok) {
                     throw new Error('Failed to fetch cities');
@@ -30,8 +36,22 @@ const CitySelection = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     
-    const onCitySelect=(city) => {
+    const onCitySelect=async(city) => {
         console.log(city)
+
+        const result = await fetch('http://localhost:3000/GetPgByCity', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({city}),
+            credentials:"include",
+        });
+        if (!result.ok) {
+            throw new Error('Failed to fetch pgs');
+        }
+        const data = await result.json();
+        console.log("data",data)
+
+        navigate('/UserPgList', { state: { pgData: data } });//state can also be passed along with the navigate function
     }
     
     return (

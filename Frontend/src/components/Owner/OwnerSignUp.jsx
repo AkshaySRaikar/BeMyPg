@@ -66,6 +66,8 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import pgimage from '../../assets/images/WhatsApp3.jpeg'
 
 function Signup() {
     const [email, setEmail] = useState('');
@@ -75,23 +77,29 @@ function Signup() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
 
     const onSubmit = async (data) => {
-        console.log('Form Data:', data);
         try {
             const result = await fetch('http://localhost:3000/owner/', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             });
-            const res = await result.text();
-            console.log('Response from server:', res);
+            const res = await result.json();
+
+            if (res.success) {
+                // Redirect the user on successful login
+                window.location.href = res.redirect;
+            } else {
+                console.error(res.message); // Handle error messages
+            }
         } catch (error) {
             console.error('Error:', error);
         }
-    }
+    };
 
     return (
         <div className="flex h-screen">
-            <div className="w-1/2 bg-gradient-to-l from-black to-gray-500 flex flex-col justify-center items-center p-8">
+            <div className="w-1/2 bg-gradient-to-l from-black to-gray-700 flex flex-col justify-center items-center p-8">
+            
                 <h2 className="text-2xl font-bold text-center text-white">Signup</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
@@ -118,16 +126,30 @@ function Signup() {
                         />
                         {errors.password && <p className="text-red-500 text-sm">Password is required</p>}
                     </div>
+                  
                     <button type="submit" className="w-full px-4 py-2 font-medium text-white bg-cyan-500 rounded-full hover:bg-cyan-700" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Signup'}
                     </button>
+                    <div>
+    <li style={{ listStyleType: "none", textAlign: "center", marginTop: "1rem" }}>
+        <Link to="/OwnerLogin" style={{ color: "white", textDecoration: "underline" }}>
+            Login
+        </Link>
+    </li>
+    
+</div>
+
+                    
                 </form>
+                
             </div>
+            
+
             <div className="w-1/2">
             <img 
-            src="https://plus.unsplash.com/premium_photo-1672423154405-5fd922c11af2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" 
+            src={pgimage}
             alt="Skyscrapers viewed from below with a clear sky" 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-fill" 
             />
         </div>
         </div>

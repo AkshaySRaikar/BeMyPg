@@ -1,6 +1,7 @@
 // src/pages/HomePage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import pgimage from './../assets/images/WhatsApp4.jpeg'
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -9,7 +10,11 @@ const HomePage = () => {
         <div className="flex h-screen">
         <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
             <h1 className="text-6xl font-bold mb-4 gradient-text-animation">BeMyPG</h1>
-            <p className="text-white mb-6"> Who are you?</p>
+
+            {/* <p className="text-white mb-6"> Who are you?</p> */}
+
+            <p className="text-white mb-6"> Who the end user is?</p>
+
             <div className="w-full max-w-sm">
             {/* <a href="combine.html"> */}
                 <button 
@@ -31,9 +36,9 @@ const HomePage = () => {
         </div>
         <div className="w-1/2">
             <img 
-            src="https://plus.unsplash.com/premium_photo-1672423154405-5fd922c11af2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" 
+            src={pgimage}
             alt="Skyscrapers viewed from below with a clear sky" 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-fill" 
             />
         </div>
         </div>

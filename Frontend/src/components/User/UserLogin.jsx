@@ -1,6 +1,7 @@
 // src/components/Login.jsx
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import pgimage from '../../assets/images/WhatsApp5.jpeg'
 
 function Login() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -11,7 +12,8 @@ function Login() {
             const result = await fetch('http://localhost:3000/user/login/', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
+                credentials:"include",
             });
             const res = await result.json();
     
@@ -89,9 +91,9 @@ function Login() {
             </div>
             <div className="w-1/2">
             <img 
-            src="https://plus.unsplash.com/premium_photo-1672423154405-5fd922c11af2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" 
+            src={pgimage}
             alt="Skyscrapers viewed from below with a clear sky" 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-fill" 
             />
         </div>
         </div>
