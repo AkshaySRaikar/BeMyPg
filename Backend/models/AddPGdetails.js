@@ -72,6 +72,17 @@
                 ref: "pgusers",
             },
 
+            Gender:{
+                type:String,
+                required:true,
+            },
+
+            Food:{
+                type:String,
+                required:true,
+
+            },
+
             pgBookings: [
                 {
                     user: {

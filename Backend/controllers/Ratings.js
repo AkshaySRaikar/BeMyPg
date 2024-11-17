@@ -30,4 +30,28 @@ const addRatingAndReview = async (req, res) => {
     }
 };
 
-module.exports = { addRatingAndReview };
+
+// const getReview = async (req, res) => {
+//     try {
+//         const { pg_id } = req.params;
+//         console.log(pg_id,"the star id");
+//         // Fetch PG details
+//         const pgDetails = await pgModel.findById(pg_id);
+
+//         if (!pgDetails) {
+//             return res.status(404).send("PG Not Found");
+//         }
+
+//         // Calculate the average rating from the Review array
+//         const ratings = pgDetails.Review.map(review => review.rating);
+//         const averageRating = ratings.length ? (ratings.reduce((acc, rating) => acc + rating, 0) / ratings.length) : 0;
+
+//         res.status(200).json({ averageRating });
+//     } catch (error) {
+//         console.error("Error fetching reviews:", error);
+//         res.status(500).send("An error occurred while fetching the average rating");
+//     }
+// };
+
+module.exports = { addRatingAndReview};
+

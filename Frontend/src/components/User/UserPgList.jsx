@@ -52,12 +52,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const PgListPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { pgData } = location.state || { pgData: [] };
-
+    const { pgData } = location.state || {};
+   console.log(pgData);
     const handlePgClick = (pg) => {
         navigate('/PgDetailPage', { state: { pg } });
     };
 
+    
     return (
         <div className="bg-gradient-to-l from-black  to-cyan-600 min-h-screen p-8">
             <h2 className="text-3xl font-bold text-center mb-8 text-white">Available PGs in {pgData[0]?.City || 'the City'}</h2>
@@ -74,6 +75,8 @@ const PgListPage = () => {
                             <p className="text-white"><strong>City:</strong> {pg.City}</p>
                             <p className="text-white"><strong>Price Range:</strong> {pg.PriceRange}</p>
                             <p className="text-white"><strong>Contact:</strong> {pg.PhNumber}</p>
+                           
+                            <p className="text-white"><strong>PG for </strong> {pg.Gender}</p>
                             
                             {pg.Images && pg.Images.length > 0 && (
                                 <img

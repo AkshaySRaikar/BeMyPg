@@ -52,6 +52,9 @@ const OwnerProfile = () => {
                                 <p className="text-white"><strong>City:</strong> {pg.City}</p>
                                 <p className="text-white"><strong>Phone Number:</strong> {pg.PhNumber}</p>
                                 <p className="text-white"><strong>Price Range:</strong> ₹{pg.PriceRange}</p>
+                                <p className="text-white"><strong>Food-Menu:</strong> {pg.Food}</p>
+                                <p className="text-white"><strong>PG for:</strong> {pg.Gender}</p>
+
                             </div>
                         ))}
                     </div>

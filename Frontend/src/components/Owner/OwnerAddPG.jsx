@@ -73,6 +73,9 @@ const OwnerAddPG = () => {
             <input className='bg-gradient-to-r from-black to-gray-500 text-white placeholder-white' type='text' placeholder='Enter Name of Your PG' {...register("pgName",{required:{value : true, message : "Mandatory field"}})} />
             {errors.pgName && <span className='text-red-600'>{errors.pgName.message}</span>}
 
+            <input className='bg-gradient-to-r from-black to-gray-500 text-white placeholder-white' type='text' placeholder='Boys/Girls' {...register("gender",{required:{value : true, message : "Mandatory field"}})} />
+            {errors.pgName && <span className='text-red-600'>{errors.pgName.gender}</span>}
+
             <input className='bg-gradient-to-r from-black to-gray-500 text-white placeholder-white' type='number' placeholder="Phone Number" {...register("phNumber",{required:{value : true, message : "Mandatory field"},valueAsNumber: true,validate: {
                 validNumber: (value) =>
                     /^[6-9]\d{9}$/.test(value) || "Phone number must be a valid 10-digit number starting with 6-9",

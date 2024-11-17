@@ -92,6 +92,8 @@ const OwnerPGDetails = () => {
                     <p className="text-white text-xl">Address: {pg.Address}</p>
                     <p className="text-white text-xl">City: {pg.City}</p>
                     <p className="text-white text-xl">Price Range: ₹{pg.PriceRange}</p>
+                    <p className="text-white text-xl">Food-Menu:{pg.Food}</p>
+                    <p className="text-white text-xl">PG for {pg.Gender}</p>
 
                     <div className="flex flex-col w-full mt-4">
                         <h3 className="text-xl font-bold mb-3 text-white">Rooms</h3>

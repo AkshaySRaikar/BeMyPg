@@ -30,13 +30,15 @@ const AddNewPg =async (req,res) => {
                     Images: []
                 },
             ],
-
+            Gender:body.gender,
+            Food:body.foodmenu,
             Review: [], // Initialize Review as an empty array
             Feedback: [],
             createdBy: req.user._id,
             
             pgBookings: [], 
             scheduledVisits: [],
+           
             })
         
             console.log("got the pg details")

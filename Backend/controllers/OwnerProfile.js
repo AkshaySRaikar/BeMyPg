@@ -25,6 +25,8 @@ const OwnerProfile = async (req, res) => {
                 City: pg.City,
                 PhNumber: pg.PhNumber,
                 PriceRange: pg.PriceRange,
+                Food:pg.Food,
+                Gender:pg.Gender,
             })),
         };
 
