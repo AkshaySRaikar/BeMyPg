@@ -10,9 +10,8 @@ const UserProfile = async(req,res) => {
 
     const profile ={
         "user": {
-            // "name": "John Doe",
+            Userid:userId,
             email: result.email,
-            // "phone": "9876543210"
             },
         }
         console.log("profile",profile);

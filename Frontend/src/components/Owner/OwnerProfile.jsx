@@ -29,29 +29,29 @@ const OwnerProfile = () => {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="container mx-auto p-6">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Owner Profile</h1>
+        <div className="container mx-auto p-6 bg-gradient-to-l from-black to-cyan-600">
+            <h1 className="text-2xl font-bold text-white mb-4 text-center">Owner Profile</h1>
 
             {/* Owner Profile Section */}
             {ownerData && (
                 <>
-                    <div className="bg-white shadow-md rounded-lg p-6 mb-6">
-                        <h2 className="text-xl font-semibold text-gray-700 mb-2">Owner Information</h2>
-                        {/* <p className="text-gray-600"><strong>Name:</strong> {ownerData.owner.name}</p> */}
-                        <p className="text-gray-600"><strong>Email:</strong> {ownerData.owner.email}</p>
-                        {/* <p className="text-gray-600"><strong>Phone:</strong> {ownerData.owner.phone}</p> */}
+                    <div className=" shadow-md rounded-lg p-6 mb-6 bg-gradient-to-t from-blue-700 to-cyan-500">
+                        <h2 className="text-xl font-semibold text-white mb-2">Owner Information</h2>
+                        {/* <p className="text-white"><strong>Name:</strong> {ownerData.owner.name}</p> */}
+                        <p className="text-white"><strong>Email:</strong> {ownerData.owner.email}</p>
+                        {/* <p className="text-white"><strong>Phone:</strong> {ownerData.owner.phone}</p> */}
                     </div>
 
                     {/* PG Details Section */}
                     <div className="space-y-8">
-                        <h2 className="text-xl font-semibold text-gray-700 mb-4">PGs Added by Owner</h2>
+                        <h2 className="text-xl font-semibold text-white mb-4">PGs Added by Owner</h2>
                         {ownerData.pgDetails.map((pg, index) => (
-                            <div key={index} className="bg-white shadow-md rounded-lg p-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{pg.PGname}</h3>
-                                <p className="text-gray-600"><strong>Address:</strong> {pg.Address}</p>
-                                <p className="text-gray-600"><strong>City:</strong> {pg.City}</p>
-                                <p className="text-gray-600"><strong>Phone Number:</strong> {pg.PhNumber}</p>
-                                <p className="text-gray-600"><strong>Price Range:</strong> ₹{pg.PriceRange}</p>
+                            <div key={index} className="bg-gradient-to-b from-indigo-700 to-purple-700 shadow-md rounded-lg p-6">
+                                <h3 className="text-lg font-semibold text-white mb-2">{pg.PGname}</h3>
+                                <p className="text-white"><strong>Address:</strong> {pg.Address}</p>
+                                <p className="text-white"><strong>City:</strong> {pg.City}</p>
+                                <p className="text-white"><strong>Phone Number:</strong> {pg.PhNumber}</p>
+                                <p className="text-white"><strong>Price Range:</strong> ₹{pg.PriceRange}</p>
                             </div>
                         ))}
                     </div>

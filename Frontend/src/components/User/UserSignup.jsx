@@ -67,6 +67,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import pgimage from '../../assets/images/WhatsApp5.jpeg'
 
 function Signup() {
     const [email, setEmail] = useState('');
@@ -97,7 +98,7 @@ function Signup() {
 
     return (
         <div className="flex h-screen">
-            <div className="w-1/2 bg-black flex flex-col justify-center items-center p-8">
+            <div className="w-1/2 bg-gradient-to-l from-black to-gray-700 flex flex-col justify-center items-center p-8">
                 <h2 className="text-2xl font-bold text-center text-white">Signup</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
@@ -146,9 +147,9 @@ function Signup() {
 
             <div className="w-1/2">
             <img 
-            src="https://plus.unsplash.com/premium_photo-1672423154405-5fd922c11af2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" 
+            src={pgimage}  
             alt="Skyscrapers viewed from below with a clear sky" 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-fill" 
             />
         </div>
         </div>

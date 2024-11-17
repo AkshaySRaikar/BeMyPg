@@ -31,10 +31,12 @@ const AddNewPg =async (req,res) => {
                 },
             ],
 
-            Review: [body.ratings], // Initialize Review as an empty array
-            Feedback: [body.feedback],
+            Review: [], // Initialize Review as an empty array
+            Feedback: [],
             createdBy: req.user._id,
-        
+            
+            pgBookings: [], 
+            scheduledVisits: [],
             })
         
             console.log("got the pg details")

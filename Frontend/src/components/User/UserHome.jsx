@@ -34,12 +34,12 @@ const OwnerHomePage = () => {
             >
                 View My Profile 
             </button>
-            {/* <button
+            <button
                 className="w-full px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
-                onClick={() => navigate('/OwnerPGBookingDetails')}
+                onClick={() => navigate('/UserBookings')}
             >
                 View Customer Bookings
-            </button> */}
+            </button>
             </div>
         </div>
         </div>

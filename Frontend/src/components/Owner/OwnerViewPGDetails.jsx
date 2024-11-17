@@ -76,8 +76,15 @@ const OwnerPGDetails = () => {
     if (!pgDetails || pgDetails.length === 0) return <div>No PG details available.</div>;
 
     return (
-        <div className="p-8 max-w-3xl mx-auto bg-gradient-to-l from-black to-gray-700 shadow-lg rounded-lg">
-            <h1 className="text-3xl font-bold mb-4 text-white">PG Details</h1>
+        <div className="p-8 min-h-screen mx-auto bg-gradient-to-l from-black to-gray-500 shadow-lg ">
+            <div className="mb-6 flex justify-center align-center">
+                <img
+                    src="https://brandstand.com/cdn/shop/articles/FutureHotelDesignInfographic_Hero_dark.jpg?v=1593002276"
+                    alt="PG Pic"
+                    className="w-1/4 h-auto rounded-md"
+                />
+            </div>
+            <h1 className="text-3xl font-bold mb-4 text-white text-center">PG Details</h1>
             {pgDetails.map((pg, index) => (
                 <div key={index} className="mb-6 flex flex-col items-center">
                     <h2 className="text-2xl font-semibold text-white">{pg.PGname}</h2>
@@ -89,7 +96,7 @@ const OwnerPGDetails = () => {
                     <div className="flex flex-col w-full mt-4">
                         <h3 className="text-xl font-bold mb-3 text-white">Rooms</h3>
                         {pg.Rooms.map((room, roomIndex) => (
-                            <div key={roomIndex} className="mb-4 p-4 bg-gray-900 rounded-lg shadow">
+                            <div key={roomIndex} className="mb-4 p-4 bg-gradient-to-r from-black to-gray-500 rounded-lg shadow">
                                 <p className="font-semibold text-white text-2xl">Room Type: {room.RoomType}</p>
                                 <p className="text-white text-xl">Price: ₹{room.RoomPrice}</p>
                                 <p className="text-white text-xl">Vacant Rooms: {room.VacantRooms}</p>

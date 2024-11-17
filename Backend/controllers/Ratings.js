@@ -11,8 +11,8 @@ const addRatingAndReview = async (req, res) => {
             { _id: pg_id},
             {
                 $push: {
-                    [`Review.rating`]: ratings,   // Append rating to the Review array
-                    [`Feedback.message`]: feedback  // Append review to the Feedback array
+                    Review: { rating: ratings },    // Push an object with `rating` field
+                    Feedback: { message: feedback } // Append review to the Feedback array
                 }
             }
         );

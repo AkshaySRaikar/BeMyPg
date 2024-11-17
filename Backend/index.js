@@ -27,6 +27,11 @@ const OwnerProfile = require("./routes/OwnerProfile.js");
 const UserProfile = require("./routes/UserProfile.js");
 const UserFindPgByCity = require("./routes/UserFindPgByCity.js");
 const GetPgByCity = require("./routes/GetPgByCity.js");
+const BookPg = require("./routes/BookPg.js");
+const ScheduleVisit = require("./routes/ScheduleVisit.js");
+const updateBookingStatus = require("./routes/updateBookingStatus.js");
+const userBookings = require("./routes/userBookings.js");
+const userScheduledVisits = require("./routes/userScheduledVisits.js");
 
 
 // Midleware for packages
@@ -54,8 +59,13 @@ app.use("/OwnerProfile",restrictToLoggedinUserOnly,OwnerProfile)
 app.use("/UserProfile",restrictToLoggedinPgUserOnly,UserProfile)
 app.use("/UserFindPgByCity",restrictToLoggedinPgUserOnly,UserFindPgByCity)
 app.use("/GetPgByCity",restrictToLoggedinPgUserOnly,GetPgByCity) 
+app.use("/updateBookingStatus",restrictToLoggedinPgUserOnly,updateBookingStatus);
+app.use("/userBookings",restrictToLoggedinPgUserOnly,userBookings)
+app.use("/userScheduledVisits",restrictToLoggedinPgUserOnly,userScheduledVisits)
 
-app.use("/rating",rating);
+app.use("/BookPg",restrictToLoggedinPgUserOnly,BookPg);
+app.use("/rating",restrictToLoggedinPgUserOnly,rating);
+app.use("/ScheduleVisit",restrictToLoggedinPgUserOnly,ScheduleVisit);
 
 app.use("/",staticRoute);
 app.use("/owner",pgowner);      // means if url with /owner then call this
