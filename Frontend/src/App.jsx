@@ -13,6 +13,7 @@ import OwnerProfile from './components/Owner/OwnerProfile'
 import UserLogin from './components/User/UserLogin'
 import UserSignUp from './components/User/UserSignup'
 import AddRoomOwner from './components/Owner/OwnerAddNewRoom'
+import ScheduledVisits from './components/Owner/ScheduledVisits'
 import OwnerPGBookingDetails from './components/Owner/OwnerPGBookingDetails'
 import UserHome from './components/User/UserHome'
 import UserProfile from './components/User/UserViewProfile'
@@ -22,14 +23,16 @@ import RatingMain from './components/User/RatingMain'
 import PgDetailPage from './components/User/PgDetailPage'
 import PaymentPage from './components/User/Userpaymentportal'
 import PaymentOptions from './components/User/Userpaymentoptions'
-
+import PaymentSuccess from './components/User/payment-success'
+import UserReserveRoom from './components/User/UserReserveRoom'
+import UserBookings from './components/User/UserBookings'
 function App()
 {
   // const [count, setCount] = useState(0)
   const router = createBrowserRouter(
     [
       {
-        path : "/Home",
+        path : "/",
         element : <><Home/></>
       },
       {
@@ -65,6 +68,10 @@ function App()
         element : <><OwnerPGBookingDetails/></>
       },
       {
+        path : "/ScheduledVisits",
+        element : <><ScheduledVisits/></>
+      },
+      {
         path : "/UserLogin",
         element : <><UserLogin/></>
       },
@@ -89,6 +96,14 @@ function App()
         element : <><UserPgList/></>
       },
       {
+        path : "/UserReserveRoom",
+        element : <><UserReserveRoom/></>
+      },
+      {
+        path : "/UserBookings",
+        element : <><UserBookings/></>
+      },
+      {
         path : "/PgDetailPage",
         element : <><PgDetailPage/></>
       },
@@ -101,11 +116,16 @@ function App()
         path:"/Userpaymentportal",
         element:<><PaymentPage/></>
       },
+      
       {
-        path:"/Userpaymentoptions",
+        path:"/PaymentOptions",
         element:<><PaymentOptions/></>
-      }
+      },
 
+      {
+        path:"/payment-success",
+        element:<><PaymentSuccess/></>
+      }
     ]
   )
 
