@@ -127,25 +127,25 @@ const PgDetailPage = () => {
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen p-8 flex flex-col">
+        <div className="bg-gradient-to-l from-gray-800 via-gray-400 to-gray-800 min-h-screen p-8 flex flex-col">
             <h2 className="text-3xl font-bold text-center mb-8">{pg.PGname}</h2>
-            <p className="text-xl text-gray-700"><strong>City:</strong> {pg.City}</p>
-            <p className="text-xl text-gray-700"><strong>Price Range:</strong> {pg.PriceRange}</p>
-            <p className="text-xl text-gray-700"><strong>Contact:</strong> {pg.PhNumber}</p>
-            <p className="text-xl text-gray-700"><strong>Address:</strong> {pg.Address}</p>
-            <p className="text-xl text-gray-700"><strong>FoodMenu:</strong> {pg.Food}</p>
-            <p className="text-xl text-gray-700"><strong>Gender:</strong> {pg.Gender}</p>
+            <p className="text-xl text-white"><strong>City:</strong> {pg.City}</p>
+            <p className="text-xl text-white"><strong>Price Range:</strong> {pg.PriceRange}</p>
+            <p className="text-xl text-white"><strong>Contact:</strong> {pg.PhNumber}</p>
+            <p className="text-xl text-white"><strong>Address:</strong> {pg.Address}</p>
+            <p className="text-xl text-white"><strong>FoodMenu:</strong> {pg.Food}</p>
+            <p className="text-xl text-white"><strong>Gender:</strong> {pg.Gender}</p>
             
             {/* Display average rating */}
-            <div className="text-xl text-gray-700 mb-4">
+            <div className="text-xl text-white mb-4">
                 <strong>Rating:</strong> {renderStars(averageRating)} ({averageRating.toFixed(1)})
             </div>
 
             {/* Display rooms */}
-            <div className="mt-6">
-                <h3 className="text-2xl font-semibold mb-4">Rooms</h3>
+            <div className="mt-6 ">
+                <h3 className="text-2xl font-semibold mb-4 text-white">Rooms</h3>
                 {pg.Rooms.map((room, index) => (
-                    <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow">
+                    <div key={index} className="mb-4 p-4 rounded-lg shadow bg-gradient-to-l from-gray-400 via-gray-800 to-gray-400">
                         <p><strong>Room Type:</strong> {room.RoomType}</p>
                         <p><strong>Room Price:</strong> ₹{room.RoomPrice}</p>
                         <p><strong>Vacant Rooms:</strong> {room.VacantRooms}</p>
@@ -173,7 +173,7 @@ const PgDetailPage = () => {
             </button>
             <button
                 onClick={() => handleNavigateToBook(pg)}
-                className="bg-blue-500 text-white px-4 py-2 rounded mt-4 w-96 mx-auto"
+                className="bg-green-500 text-white px-4 py-2 rounded mt-4 w-96 mx-auto"
             >
                 Reserve Now
             </button>
@@ -187,48 +187,48 @@ const PgDetailPage = () => {
             {/* Modal for scheduling visit */}
             {showModal && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+                    <div className="bg-gray-400 p-6 rounded-lg shadow-lg w-96">
                         <h3 className="text-xl font-bold mb-4">Schedule a Visit</h3>
 
                         {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
 
                         <div className="mb-4">
-                            <label className="block text-gray-700">Name</label>
+                            <label className="block text-black">Name</label>
                             <input
                                 type="text"
                                 name="name"
                                 value={userDetails.name}
                                 onChange={handleInputChange}
-                                className="w-full p-3 bg-gray-100 text-gray-700 rounded-lg border border-gray-300"
+                                className="w-full p-3 bg-gray-100 text-white rounded-lg border border-gray-300"
                             />
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-gray-700">Phone Number</label>
+                            <label className="block text-black">Phone Number</label>
                             <input
                                 type="text"
                                 name="phone"
                                 value={userDetails.phone}
                                 onChange={handleInputChange}
-                                className="w-full p-3 bg-gray-100 text-gray-700 rounded-lg border border-gray-300"
+                                className="w-full p-3 bg-gray-100 text-white rounded-lg border border-gray-300"
                             />
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-gray-700">Date of Visit</label>
+                            <label className="block text-black">Date of Visit</label>
                             <input
                                 type="date"
                                 name="visitDate"
                                 value={userDetails.visitDate}
                                 onChange={handleInputChange}
-                                className="w-full p-3 bg-gray-100 text-gray-700 rounded-lg border border-gray-300"
+                                className="w-full p-3 bg-gray-100 text-black rounded-lg border border-gray-300"
                             />
                         </div>
 
                         <div className="flex justify-between">
                             <button
                                 onClick={handleCloseModal}
-                                className="bg-gray-400 text-white px-4 py-2 rounded"
+                                className="bg-gray-600 text-white px-4 py-2 rounded"
                             >
                                 Cancel
                             </button>

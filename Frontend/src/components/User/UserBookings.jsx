@@ -233,12 +233,12 @@ const MyBookings = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="my-bookings p-4">
-            <h2 className="text-2xl font-bold mb-6">My Bookings and Scheduled Visits</h2>
+        <div className="my-bookings p-4 bg-gradient-to-br from-violet-400  via-cyan-600 to-red-700 h-screen">
+            <h2 className="text-2xl font-bold mb-6 text-white">My Bookings and Scheduled Visits</h2>
 
             {/* Display Scheduled Visits */}
             <div>
-                <h3 className="text-xl font-semibold mb-4">Scheduled Visits</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">Scheduled Visits</h3>
                 {scheduledVisits.length === 0 ? (
                     <p>No scheduled visits found.</p>
                 ) : (
@@ -246,12 +246,12 @@ const MyBookings = () => {
                         {scheduledVisits.map((visit, index) => (
                             <div
                                 key={index}
-                                className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                                className="bg-gradient-to-l from-black via-blue-600 to-black shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
                             >
                                 <div className="p-6">
-                                    <h3 className="text-xl font-semibold mb-2">Visit on: {new Date(visit.visitDate).toLocaleDateString()}</h3>
-                                    <p className="text-gray-600 mb-2"><strong>Name:</strong> {visit.name}</p>
-                                    <p className="text-gray-600 mb-2"><strong>Phone:</strong> {visit.phone}</p>
+                                    <h3 className="text-xl font-semibold mb-2 text-white">Visit on: {new Date(visit.visitDate).toLocaleDateString()}</h3>
+                                    <p className="text-white mb-2"><strong>Name:</strong> {visit.name}</p>
+                                    <p className="text-white mb-2"><strong>Phone:</strong> {visit.phone}</p>
                                 </div>
                             </div>
                         ))}
@@ -261,7 +261,7 @@ const MyBookings = () => {
 
             {/* Display Bookings */}
             <div>
-                <h3 className="text-xl font-semibold mb-4">My Bookings</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">My Bookings</h3>
                 {bookings.length === 0 ? (
                     <p>No bookings found.</p>
                 ) : (
@@ -269,11 +269,11 @@ const MyBookings = () => {
                         {bookings.map((booking, index) => (
                             <div
                                 key={index}
-                                className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                                className="bg-gradient-to-r from-black to-green-600 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
                             >
                                 <div className="p-6">
-                                    <h3 className="text-xl font-semibold mb-2">Room: {booking.roomBooked}</h3>
-                                    <p className="text-gray-600 mb-2"><strong>Date:</strong> {new Date(booking.bookingDate).toLocaleDateString()}</p>
+                                    <h3 className="text-xl font-semibold mb-2 text-white">Room: {booking.roomBooked}</h3>
+                                    <p className="text-white mb-2"><strong>Date:</strong> {new Date(booking.bookingDate).toLocaleDateString()}</p>
                                     <p className={`text-sm font-medium ${booking.bookingStatus === 'confirmed' ? 'text-green-500' : booking.bookingStatus === 'pending' ? 'text-yellow-500' : 'text-red-500'}`}>
                                         <strong>Status:</strong> {booking.bookingStatus}
                                     </p>

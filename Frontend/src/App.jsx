@@ -26,6 +26,11 @@ import PaymentOptions from './components/User/Userpaymentoptions'
 import PaymentSuccess from './components/User/payment-success'
 import UserReserveRoom from './components/User/UserReserveRoom'
 import UserBookings from './components/User/UserBookings'
+import FAQs from './components/User/FAQs'
+import Aboutus from './components/User/Aboutus'
+import Contactus from './components/User/Contactus'
+
+
 function App()
 {
   // const [count, setCount] = useState(0)
@@ -125,6 +130,18 @@ function App()
       {
         path:"/payment-success",
         element:<><PaymentSuccess/></>
+      },
+      {
+        path:"/FAQs",
+        element:<><FAQs/></>
+      },
+      {
+        path:"/Aboutus",
+        element:<><Aboutus/></>
+      },
+      {
+        path:"/Contactus",
+        element:<><Contactus/></>
       }
     ]
   )

@@ -13,7 +13,7 @@ const HomePage = () => {
 
             {/* <p className="text-white mb-6"> Who are you?</p> */}
 
-            <p className="text-white mb-6"> Who the end user is?</p>
+            <p className="text-white mb-6"> How do you describe yourself?</p>
 
             <div className="w-full max-w-sm">
             {/* <a href="combine.html"> */}

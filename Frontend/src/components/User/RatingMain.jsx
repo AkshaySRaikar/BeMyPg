@@ -47,10 +47,10 @@ const PgReview = () => {
     };
         
     return (
-        <div className="bg-gray-100 min-h-screen p-8 flex flex-col items-center">
+        <div className="bg-gradient-to-br from-gray-800 via-gray-400 to-gray-800 min-h-screen p-8 flex flex-col items-center">
             <h2 className="text-3xl font-bold text-center mb-4">Review for {pg.PGname}</h2>
 
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8 w-full max-w-md">
+            <div className="bg-gray-400 rounded-lg shadow-md p-6 mb-8 w-full max-w-md">
                 <p><strong>City:</strong> {pg.City}</p>
                 <p><strong>Price Range:</strong> ₹{pg.PriceRange}</p>
                 <p><strong>Contact:</strong> {pg.PhNumber}</p>
@@ -63,7 +63,7 @@ const PgReview = () => {
                 )}
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
+            <div className="bg-gray-400 rounded-lg shadow-md p-6 w-full max-w-md">
                 <h3 className="text-2xl font-semibold mb-4">Submit Your Review</h3>
 
                 {/* Rating section */}
@@ -90,7 +90,7 @@ const PgReview = () => {
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
                         rows="4"
-                        className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="border bg-gray-400 placeholder-black rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="Write your review here"
                     ></textarea>
                 </div>

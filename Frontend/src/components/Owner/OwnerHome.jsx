@@ -39,13 +39,15 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import pgimage from '../../assets/images/WhatsApp2.jpeg';
 
 const OwnerHomePage = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-no-repeat bg-cover" style={{ backgroundImage: 'url("https://st3.depositphotos.com/3336339/37106/i/450/depositphotos_371068526-stock-photo-dark-silver-cubes-abstract-metallic.jpg")' }}>        
-            <div className="text-center p-8 bg-gray-900 shadow-lg rounded-lg">
+        <div className="flex h-screen bg-white">
+        <div className="w-1/3 flex items-center justify-center h-screen bg-gradient-to-r from-black  to-gray-500 " >        
+            <div className="text-center p-8 bg-gradient-to-r from-black  to-gray-500 shadow-lg rounded-lg">
             <h1 className="text-3xl font-bold mb-6 text-white">Owner Dashboard</h1>
             <p className="text-lg mb-8 text-white">Manage your PG listings and rooms.</p>
             <div className="space-y-4">
@@ -88,6 +90,17 @@ const OwnerHomePage = () => {
             </div>
         </div>
         </div>
+
+
+
+        <div className="w-2/3">
+        <img 
+            src={pgimage}
+            alt="abstract pic of pg" 
+            className="w-full h-full object-fill" 
+            />
+        </div>
+    </div>
     );
 };
 

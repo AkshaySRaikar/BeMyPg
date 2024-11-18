@@ -251,7 +251,8 @@ const BookingForm = ({ onBookingSuccess }) => {
     };
 
     return (
-        <div className="p-6 max-w-md mx-auto bg-gray-800 text-white rounded-md shadow-md">
+        <div className="h-screen bg-gradient-to-l from-black via-gray-200 to-black">
+        <div className="p-6 max-w-md mx-auto bg-gray-800 text-white rounded-md shadow-md ">
             <h2 className="text-2xl font-bold mb-4">Book a PG</h2>
             {error && <p className="text-red-500">{error}</p>}
             <form onSubmit={handleSubmit}>
@@ -304,11 +305,12 @@ const BookingForm = ({ onBookingSuccess }) => {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full p-2 mt-4 rounded-md bg-blue-600 hover:bg-blue-700"
+                    className="w-full p-2 mt-4 rounded-md bg-green-600 hover:bg-green-700"
                 >
                     {loading ? "Booking..." : "Book Now"}
                 </button>
             </form>
+        </div>
         </div>
     );
 };

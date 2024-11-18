@@ -30,17 +30,18 @@ const UserProfile = () => {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="h-screen p-8 bg-gradient-to-l from-black to-cyan-600">
+        <div className="h-screen p-8 bg-repeat" style={{ backgroundImage: 'url("https://i0.wp.com/picjumbo.com/wp-content/uploads/abstract-image-glass-city-skyscrapers-free-photo.jpeg?w=600&quality=80")' }}>
+
             <h1 className="text-2xl font-bold text-center text-white mb-4">User Profile</h1>
 
 
             {/* User Profile Section */}
             {UserData && (
                 <>
-                    <div className="bg-gradient-to-l from-indigo-500  to-purple-600 shadow-md rounded-lg p-6 mb-6">
-                        <h2 className="text-xl font-semibold text-white mb-2">User Information</h2>
+                    <div className="bg-gray-300 shadow-md rounded-lg p-6 mb-6">
+                        <h2 className="text-xl font-semibold  mb-2">User Information</h2>
                         {/* <p className="text-gray-600"><strong>Name:</strong> {UserData.User.name}</p> */}
-                        <p className="text-white"><strong>Email:</strong> {UserData.user.email}</p>
+                        <p className="text-black"><strong>Email:</strong> {UserData.user.email}</p>
                         {/* <p className="text-gray-600"><strong>Phone:</strong> {UserData.User.phone}</p> */}
                     </div>
                 </>)
